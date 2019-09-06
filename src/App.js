@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import uuid from 'uuid';
+import axios from 'axios';
 import Header from './components/layout/Header';
 import Todos from './components/Todos';
 import About from './components/pages/About';
@@ -9,26 +10,28 @@ import About from './components/pages/About';
 class App extends Component {
   state = {
     todos: [
-      {
-        id: uuid.v4(),
-        title: 'Take out trash.',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Do homework.',
-        completed: true
-      },
-      {
-        id: uuid.v4(),
-        title: 'Learn React.',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Take Notes.',
-        completed: false
-      },
+      //Hard-coded values
+
+      // {
+      //   id: uuid.v4(),
+      //   title: 'Take out trash.',
+      //   completed: false
+      // },
+      // {
+      //   id: uuid.v4(),
+      //   title: 'Do homework.',
+      //   completed: true
+      // },
+      // {
+      //   id: uuid.v4(),
+      //   title: 'Learn React.',
+      //   completed: false
+      // },
+      // {
+      //   id: uuid.v4(),
+      //   title: 'Take Notes.',
+      //   completed: false
+      // },
     ]
   }
 
@@ -43,19 +46,37 @@ class App extends Component {
 
   //Delete a task.
   delTodo = (id) => {
-    this.setState({todos: [...this.state.todos.filter(todo =>
-      todo.id !== id)]});
+    //Hard-coded Delete from state
+    // this.setState({todos: [...this.state.todos.filter(todo =>
+    //   todo.id !== id)]});
+
+      const apiUrl = `https://jsonplaceholder.typicode.com/todos/${id}`;
+
+      axios.delete(apiUrl)
+        .then(this.setState({todos: [...this.state.todos.filter(todo =>
+          todo.id !== id)]}));
   }
 
   //Add a new task.
   addTodo = (addTitle) => {
+    
+    //Hard-coded Sate Update
+
+    // const newTask = {
+    //   id: uuid.v4(),
+    //   title: addTitle,
+    //   complete: false
+    // }
+
     const newTask = {
-      id: uuid.v4(),
       title: addTitle,
-      complete: false
+      completed: false
     }
 
-    this.setState({ todos: [...this.state.todos, newTask]});
+    const apiUrl = "https://jsonplaceholder.typicode.com/todos";
+    
+    axios.post(apiUrl, newTask)
+      .then(response => this.setState({ todos: [...this.state.todos, response.data]}));
   }
 
   render(){
@@ -78,7 +99,13 @@ class App extends Component {
         </div>
       </Router>
     );
-  };
+  }
+
+  componentDidMount() {
+    const apiUrl = 'https://jsonplaceholder.typicode.com/todos?_limit=10';
+    axios.get(apiUrl)
+      .then(response => this.setState( {todos: response.data}));
+  }
 }
 
 export default App;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import AddTodo from './AddTodo';
 
 function Header(props){ //We need to mention "props" as a parameter as we intend to use props passed by the parent component in this functional class.
@@ -12,7 +13,7 @@ function Header(props){ //We need to mention "props" as a parameter as we intend
                 </div>
                 <div className="nav-content">
                     <ul className="tabs tabs-transparent">
-                        <li className="tab"><Link onClick={setActive} class="active" to="/">Tasks</Link></li>
+                        <li className="tab"><Link onClick={setActive} className="active" to="/">Tasks</Link></li>
                         <li className="tab"><Link onClick={setActive} to="/about">About</Link></li>
                     </ul>
                 </div>
@@ -27,4 +28,9 @@ function setActive(e) {
         link.classList.remove("active");
     e.target.classList.add("active");
 }
+
+Header.propTypes = {
+    addTodo: PropTypes.func.isRequired
+}
+
 export default Header;

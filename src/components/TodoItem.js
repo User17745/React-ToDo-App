@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class TodoItem extends React.Component {
     getStyle(){
         return{
+            maxWidth: '94%',
             color: this.props.todo.completed ? '#848484' : '#5ba6ab',
             textDecoration: this.props.todo.completed ? 'line-through' : 'none'
         }
@@ -28,7 +29,9 @@ class TodoItem extends React.Component {
 }
 
 TodoItem.propTypes = {
-    todo: PropTypes.object.isRequired
+    todo: PropTypes.object.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    delTodo: PropTypes.func.isRequired
 }
 
 export default TodoItem;
