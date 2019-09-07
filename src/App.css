@@ -16,3 +16,7 @@
 .tab a:hover {
     border-bottom: 3px solid rgba(255,255,255,0.7);
 }
+
+.brand-logo {
+    font-family: 'Pacifico', cursive;
+}

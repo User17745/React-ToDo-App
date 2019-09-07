@@ -8,7 +8,7 @@ function Header(props){ //We need to mention "props" as a parameter as we intend
         <header>
             <nav className="nav-extended">
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo center">Add A New Task</a>
+                    <a href="#" className="brand-logo center">New Task</a>
                     <AddTodo addTodo={props.addTodo} />
                 </div>
                 <div className="nav-content">
