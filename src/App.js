@@ -4,8 +4,10 @@ import './App.css';
 import uuid from 'uuid';
 import axios from 'axios';
 import Header from './components/layout/Header';
-import Todos from './components/Todos';
+import Todos from './components/tasks/Todos';
 import About from './components/pages/About';
+import Quote from './components/widgets/Quote';
+import Greeting from './components/widgets/Greeting';
 
 class App extends Component {
   state = {
@@ -85,7 +87,7 @@ class App extends Component {
         <div>
           <Header addTodo={this.addTodo} />
           <div className="row">
-            <div className="col s12 m6">
+            <div className="col s12 m8">
               <Route exact path="/" render={props => (
                 <React.Fragment>
 
@@ -94,6 +96,10 @@ class App extends Component {
                 </React.Fragment>
               )} />
               <Route path="/about" component={About} />
+            </div>
+            <div className="col s12 m4">
+              <Greeting />
+              <Quote />
             </div>
           </div>
         </div>

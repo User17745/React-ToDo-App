@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import AddTodo from './AddTodo';
+import AddTodo from '../tasks/AddTodo';
 
 function Header(props){ //We need to mention "props" as a parameter as we intend to use props passed by the parent component in this functional class.
     return(
