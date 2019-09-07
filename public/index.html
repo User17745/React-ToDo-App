@@ -25,6 +25,10 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 
+    <!-- jQuery CDN Starts -->
+      <script  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <!-- jQuery CDN Ends -->
+
     <!-- Materialize CSS CDN Starts -->
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -38,6 +42,10 @@
       rel="stylesheet">
     <!-- Google Material Icons CDN Ends -->
 
+    <!-- Ionic Icons CDN Starts -->
+      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <!-- Ionic Icons CDN Ends -->
+    
     <title>React App | ToDo List</title>
   </head>
   <body>
@@ -56,6 +64,15 @@
 
     <script>        
         M.AutoInit();
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.tap-target');
+          var instances = M.TapTarget.init(elems, options);
+          });
+
+        $(document).ready(function(){
+          $('.tap-target').tapTarget('open');
+        });
     </script>
   </body>
 </html>
