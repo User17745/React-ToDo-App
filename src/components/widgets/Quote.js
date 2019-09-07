@@ -28,7 +28,7 @@ export default class Quote extends React.Component {
                 <div className="card-image">
                     <img style={{borderRadius: "10px"}} src="https://source.unsplash.com/random/500x200/?nature,pink"/>
                     <span className="card-title"><h3>Let's do something good today!</h3></span>
-                    <a id="addFab" onClick={this.focusOnAdd()} className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                    <a id="addFab" className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                 </div>
                 <div className="card-content">
                     <blockquote style={{margin: '5px 10px'}}>
